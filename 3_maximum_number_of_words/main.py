@@ -9,5 +9,13 @@ pytest ./3_maximum_number_of_words/test.py
 """
 
 
-def get_max_number_of_words_from_sentences(sentences: list[str]) -> bool:
-    """Пишите ваш код здесь."""
+def get_max_number_of_words_from_sentences(sentences: list[str]) -> int:
+    max_len = 0
+    for sentence in sentences:
+        if len(sentence.split(' ')) > max_len and len(sentence) > 0:
+            max_len = len(sentence.split(' '))
+    return max_len
+
+print(get_max_number_of_words_from_sentences(["alice and bob love cats", "i think so too", "this is great thanks very much"]))
+print(get_max_number_of_words_from_sentences(["please wait", "continue to fight", "continue to win"]))
+print(get_max_number_of_words_from_sentences(['', '']))
